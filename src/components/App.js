@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import 'antd/dist/antd.css';
-import { Switch, Route } from 'react-router-dom'
-
-export default class App extends Component {
+import React from 'react'
+import {Route, Switch} from 'react-router-dom'
+import Login from "../Pages/Login/Login";
+class App extends React.Component {
     render() {
-        return (
-            <div>
-                <Switch>
-                    <Route exact path="/" render={() => <h2>home</h2>}></Route>
-                    <Route path="/about" render={() => <h2>about</h2>}></Route>
-                </Switch>
-            </div>
-        );
-    };
+        return (<>
+            <Login />
+            {/*<Switch>*/}
+            {/*    <Route exact path='/' render={() => <h1>home</h1>} />*/}
+            {/*    <Route path='/about' render={() => <h1>about</h1>} />*/}
+            {/*</Switch>*/}
+        </>);
+    }
 }
+
+export default App;
