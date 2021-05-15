@@ -87,7 +87,7 @@ const Login = (props) => {
                                         className="login-form-button">
                                     ورود
                                 </Button>
-                                    یا <Link to="/">ثبت نام</Link>
+                                    یا <Link to="/register">ثبت نام</Link>
                             </Form.Item>
                         </Form>
                         </Card>
