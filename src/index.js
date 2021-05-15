@@ -9,7 +9,7 @@ import {
 
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename='/sample-react-antd'>
         <ConfigProvider direction='rtl'>
             <Layout/>
         </ConfigProvider>

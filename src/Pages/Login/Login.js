@@ -1,22 +1,29 @@
-import React from "react";
-import {InstagramFilled, UserOutlined, LockOutlined} from '@ant-design/icons';
-import {Form, Input, Button, Checkbox} from 'antd';
+import React, {useState} from "react";
+// import {}
+import {InstagramOutlined, UserOutlined, LockOutlined} from '@ant-design/icons';
+import {Form, Input, Button, Checkbox,Card } from 'antd';
 import {Row, Col} from 'antd';
 
-class Login extends React.Component {
-    NormalLoginForm = () => {
-        const onFinish = (values) => {
-            console.log('Received values of form: ', values);
-        }
+const Login = (props) => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const onFinish = (values) => {
+        props.history.push('/')
     }
-
-    render() {
-        return (
-            <>
+    const handleEmailInput = (e) => {
+        setEmail(e.target.value)
+    }
+    const handlePasswordInput = (e) => {
+        setPassword(e.target.value)
+    }
+    return (
+        <>
+            <div style={{backgroundColor: '#e7e7e7'}}>
                 <Row justify="center" align="middle" style={{height: '100vh'}}>
-                    <Col xs={22} sm={16} md={10} lg={6} xl={6}>
-                        <Row justify="center" style={{marginBottom: '24px'}}>
-                            <InstagramFilled style={{fontSize: '132px'}}/>
+                    <Col xs={22} sm={14} md={10} lg={8} xl={6}>
+                        <Card style={{padding: '30px 5px'}}>
+                        <Row justify="center" style={{marginBottom: '48px'}}>
+                            <InstagramOutlined style={{fontSize: '100px'}} onClick={onFinish}/>
                         </Row>
                         <Form
                             name="normal_login"
@@ -24,9 +31,11 @@ class Login extends React.Component {
                             initialValues={{
                                 remember: true,
                             }}
-                            onFinish={this.onFinish}
+                            onFinish={onFinish}
                         >
                             <Form.Item
+                                onChange={handleEmailInput}
+                                value={email}
                                 name="email"
                                 rules={[
                                     {
@@ -40,6 +49,9 @@ class Login extends React.Component {
                             </Form.Item>
                             <Form.Item
                                 name="password"
+                                onChange={handlePasswordInput}
+                                value={password}
+                                style={{marginTop: '8px'}}
                                 rules={[
                                     {
                                         required: true,
@@ -47,7 +59,7 @@ class Login extends React.Component {
                                     },
                                 ]}
                             >
-                                <Input
+                                <Input.Password
                                     prefix={<LockOutlined className="site-form-item-icon"/>}
                                     type="password"
                                     placeholder="رمز عبور"
@@ -69,17 +81,19 @@ class Login extends React.Component {
                             </Form.Item>
 
                             <Form.Item>
-                                <Button type="primary" htmlType="submit" style={{marginLeft: '10px'}} className="login-form-button">
+                                <Button type="primary" htmlType="submit" style={{marginLeft: '10px'}}
+                                        className="login-form-button">
                                     ورود
                                 </Button>
-                                یا <a href="" >ثبت نام</a>
+                                یا <a href="">ثبت نام</a>
                             </Form.Item>
                         </Form>
+                        </Card>
                     </Col>
                 </Row>
-            </>
-        )
-    }
+            </div>
+        </>
+    )
 }
 
 
