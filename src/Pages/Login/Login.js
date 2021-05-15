@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
+
 // import {}
 import {InstagramOutlined, UserOutlined, LockOutlined} from '@ant-design/icons';
 import {Form, Input, Button, Checkbox,Card } from 'antd';
@@ -73,7 +75,7 @@ const Login = (props) => {
                                         </Form.Item>
                                     </Col>
                                     <Col>
-                                        <a className="login-form-forgot" href="">
+                                        <a className="login-form-forgot" href="#">
                                             رمز رو فراموش کردم
                                         </a>
                                     </Col>
@@ -85,7 +87,7 @@ const Login = (props) => {
                                         className="login-form-button">
                                     ورود
                                 </Button>
-                                یا <a href="">ثبت نام</a>
+                                    یا <Link to="/">ثبت نام</Link>
                             </Form.Item>
                         </Form>
                         </Card>
